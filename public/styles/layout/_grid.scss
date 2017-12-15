@@ -1,0 +1,47 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  div {
+    background-color: orangered;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-port-land {
+    height: 38rem;
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+
+    &:not(:last-child) {
+      height: 51rem;
+      width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+  }
+
+  .col-port {
+    height: 57rem;
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-land-port {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    height: 51rem;
+
+    &:not(:last-child) {
+      width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+      height: 38rem;
+    }
+  }
+}

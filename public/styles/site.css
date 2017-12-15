@@ -5821,6 +5821,50 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+.row {
+  max-width: 102rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 4rem; }
+  .row::after {
+    content: '';
+    clear: both;
+    display: table; }
+  .row div {
+    background-color: orangered; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-port-land {
+    height: 38rem;
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+    .row .col-port-land:not(:last-child) {
+      height: 51rem;
+      width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-port {
+    height: 57rem;
+    width: calc((100% - 6rem) / 2); }
+  .row .col-land-port {
+    width: calc((100% - 2 * 6rem) / 3);
+    height: 51rem; }
+    .row .col-land-port:not(:last-child) {
+      width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem);
+      height: 38rem; }
+
 #header {
   margin-top: 30px; }
 
