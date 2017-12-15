@@ -10,5 +10,5 @@ exports = module.exports = function (req, res) {
 	locals.section = 'Images';
 
 	// Render the view
-	view.render('grid');
+	view.render('index');
 };

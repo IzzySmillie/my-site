@@ -5834,6 +5834,18 @@ html {
 body {
   box-sizing: border-box; }
 
+.hero {
+  margin-bottom: 4rem; }
+
+.hero__feature {
+  height: 68rem; }
+
+.hero__feature--image {
+  background-color: orangered;
+  display: block;
+  width: 100%;
+  height: inherit; }
+
 .row {
   max-width: 102rem;
   margin: 0 auto; }
