@@ -9,6 +9,12 @@ exports = module.exports = function (req, res) {
   // item in the header navigation.
   locals.section = 'Images';
 
+  var Image = keystone.list('Image').model;
+
+  Image.find({}, function(err, contentImages) {
+    view.render('grid_overview', {contentImages: contentImages});
+  });
+
   // Render the view
-  view.render('grid_overview');
+  // view.render('grid_overview');
 };

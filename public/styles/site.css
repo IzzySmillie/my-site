@@ -5867,15 +5867,21 @@ body {
     .row .col-port-land:not(:last-child) {
       height: 51rem;
       width: calc((100% - 2 * 6rem) / 3); }
+    .row .col-port-land__image {
+      width: 100%; }
   .row .col-port {
     height: 57rem;
     width: calc((100% - 6rem) / 2); }
+    .row .col-port__image {
+      width: 100%; }
   .row .col-land-port {
     width: calc((100% - 2 * 6rem) / 3);
     height: 51rem; }
     .row .col-land-port:not(:last-child) {
       width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem);
       height: 38rem; }
+    .row .col-land-port__image {
+      width: 100%; }
 
 #header {
   margin-top: 30px; }

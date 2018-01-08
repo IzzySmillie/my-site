@@ -28,11 +28,19 @@
       height: 51rem;
       width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
     }
+
+    &__image {
+      width: 100%;
+    }
   }
 
   .col-port {
     height: 57rem;
     width: calc((100% - #{$gutter-horizontal}) / 2);
+
+    &__image {
+      width: 100%;
+    }
   }
 
   .col-land-port {
@@ -42,6 +50,10 @@
     &:not(:last-child) {
       width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
       height: 38rem;
+    }
+
+    &__image {
+      width: 100%;
     }
   }
 }

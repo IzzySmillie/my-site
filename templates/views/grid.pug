@@ -2,12 +2,20 @@
 append content
   .container
     section.grid
-      div.row
-        div.col-port-land Portrait Image
-        div.col-port-land landscape Image
-      div.row
-        div.col-port Portrait Md Image
-        div.col-port Portrait Md Image
-      div.row
-        div.col-land-port Landscape Image
-        div.col-land-port Portrait Image
+      each image in contentImages
+        div.row
+          div.col-port-land Portrait Image
+            img.col-port-land__image(src='' alt='Image Title')
+          div.col-port-land landscape Image
+            img.col-port-land__image(src='' alt='Image Title')
+        div.row
+          div.col-port Portrait Md Image
+            img.col-port__image(src='' alt='Image Title')
+          div.col-port Portrait Md Image
+            img.col-port__image(src='' alt='Image Title')
+        div.row
+          div.col-land-port Landscape Image
+            img.col-land-port__image(src='' alt='Image Title')
+          div.col-land-port Portrait Image
+            img.col-land-port__image(src='' alt='Image Title')
+

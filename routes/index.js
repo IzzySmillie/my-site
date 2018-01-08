@@ -27,6 +27,7 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
+var apiHandlers = require('./api/image');
 var routes = {
 	views: importRoutes('./views'),
 };
@@ -38,6 +39,9 @@ exports = module.exports = function (app) {
   app.get('/images', routes.views.images);
   app.get('/code', routes.views.code);
   app.get('/about', routes.views.about);
+
+  //api
+  app.get('/api/image', apiHandlers.getImages);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
