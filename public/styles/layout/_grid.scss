@@ -8,16 +8,21 @@
 
   @include clearfix;
 
-  div {
-    background-color: orangered;
-  }
+  // div {
+  //   background-color: orangered;
+  // }
 
   [class^="col-"] {
     float: left;
+    overflow: hidden;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
     }
+  }
+
+  [class*="__image"] {
+    width: 100%;
   }
 
   .col-port-land {
@@ -28,19 +33,16 @@
       height: 51rem;
       width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
     }
-
-    &__image {
-      width: 100%;
-    }
   }
 
-  .col-port {
+  .col-port-port {
     height: 57rem;
     width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
 
-    &__image {
-      width: 100%;
-    }
+  .col-land-land {
+    height: 38rem;
+    width: calc((100% - #{$gutter-horizontal}) / 2);
   }
 
   .col-land-port {
@@ -50,10 +52,6 @@
     &:not(:last-child) {
       width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
       height: 38rem;
-    }
-
-    &__image {
-      width: 100%;
     }
   }
 }

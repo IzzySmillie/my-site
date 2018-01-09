@@ -1,9 +1,9 @@
 append content
   .container
-    section grid
+    section.grid
       - for (var i = 0; i < contentImages.length; i +=2)
           div.row
             div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
-              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages.smallImage alt=contentImages.name)
+              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages[i].smallImage alt=contentImages[i].name)
             div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
-              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages.smallImage alt=contentImages.name)
+              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages[i+1].smallImage alt=contentImages[i+1].name)
