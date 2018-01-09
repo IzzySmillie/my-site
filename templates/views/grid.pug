@@ -1,9 +1,16 @@
 append content
   .container
     section.grid
-      - for (var i = 0; i < contentImages.length; i +=2)
-          div.row
-            div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
-              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages[i].smallImage alt=contentImages[i].name)
-            div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
-              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages[i+1].smallImage alt=contentImages[i+1].name)
+      - for (var i = 0; i < contentImages.length; i += 2)
+        - var secondClass = i+1 >= contentImages.length ? 'solo' : contentImages[i+1].layout;
+        div.row
+          div(class="col-" + contentImages[i].layout + "-" + secondClass)
+            img(class="col-" + contentImages[i].layout + "-" + secondClass + "__image" src=contentImages[i].smallImage alt=contentImages[i].name)
+          if (secondClass !== 'solo')
+            div(class="col-" + contentImages[i].layout + "-" + secondClass)
+              img(class="col-" + contentImages[i].layout + "-" + secondClass + "__image" src=contentImages[i+1].smallImage alt=contentImages[i+1].name)
+
+
+
+
+
