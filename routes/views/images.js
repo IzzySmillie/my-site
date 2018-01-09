@@ -11,10 +11,9 @@ exports = module.exports = function (req, res) {
 
   var Image = keystone.list('Image').model;
 
-  Image.find({}, function(err, contentImages) {
-    view.render('grid_overview', {contentImages: contentImages});
-  });
-
-  // Render the view
-  // view.render('grid_overview');
+  Image.find()
+    .sort('-publishedDate')
+    .exec(function(err, contentImages) {
+      view.render('grid_overview', {contentImages: contentImages});
+    });
 };

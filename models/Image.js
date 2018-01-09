@@ -8,7 +8,8 @@ var Types = keystone.Field.Types;
 
 var Image = new keystone.List('Image', {
     map: { name: 'name' },
-    autokey: { path: 'slug', from: 'name', unique: true }
+    autokey: { path: 'slug', from: 'name', unique: true },
+    defaultSort: 'publishedDate'
 });
 
 Image.add({
@@ -42,7 +43,7 @@ Image.add({
   },
   layout: {
     type: Types.Select,
-    options: 'port, land',
+    options: [{value: 'port', label: 'Portrait Image'}, {value: 'land', label: 'Landscape Image'}],
     initial: true,
     required: true
   },
