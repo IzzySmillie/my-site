@@ -12,11 +12,40 @@ var Image = new keystone.List('Image', {
 });
 
 Image.add({
-  name: { type: String, initial: true, required: true },
-  publishedDate: { type: Date, default: Date.now },
-  image: { type: String, initial: true, required: true },
-  featuredImage: { type: Types.Boolean, initial: true},
-  description: { type: Types.Textarea, initial: true },
+  name: {
+    type: String,
+    initial: true,
+    required: true
+  },
+  publishedDate: {
+    type: Date,
+    default: Date.now,
+    required: true
+  },
+  smallImage: {
+    type: String,
+    initial: true,
+    required: true
+  },
+  bigImage: {
+    type: String,
+    initial: true,
+    required: true
+  },
+  featuredImage: {
+    type: Types.Boolean,
+    initial: true
+  },
+  description: {
+    type: Types.Textarea,
+    initial: true
+  },
+  layout: {
+    type: Types.Select,
+    options: 'port, land',
+    initial: true,
+    required: true
+  },
 });
 
 Image.register();

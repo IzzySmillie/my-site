@@ -1,20 +1,9 @@
-
 append content
   .container
-    section.grid
-      each image in contentImages
-        div.row
-          div.col-port-land Portrait Image
-            img.col-port-land__image(src=image.image alt='Image Title')
-          div.col-port-land landscape Image
-            img.col-port-land__image(src='' alt='Image Title')
-        div.row
-          div.col-port Portrait Md Image
-            img.col-port__image(src='' alt='Image Title')
-          div.col-port Portrait Md Image
-            img.col-port__image(src='' alt='Image Title')
-        div.row
-          div.col-land-port Landscape Image
-            img.col-land-port__image(src='' alt='Image Title')
-          div.col-land-port Portrait Image
-            img.col-land-port__image(src='' alt='Image Title')
+    section grid
+      - for (var i = 0; i < contentImages.length; i +=2)
+          div.row
+            div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
+              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages.smallImage alt=contentImages.name)
+            div(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout)
+              img(class="col-" + contentImages[i].layout + "-" + contentImages[i+1].layout + "__image" src=contentImages.smallImage alt=contentImages.name)
