@@ -28,6 +28,7 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var apiHandlers = require('./api/image');
+
 var routes = {
 	views: importRoutes('./views'),
 };
