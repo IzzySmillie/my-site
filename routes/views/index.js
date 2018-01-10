@@ -9,6 +9,7 @@ exports = module.exports = function (req, res, next) {
       portfolio: function(callback) {
         var Portfolio = keystone.list('Portfolio').model.find().limit(3).exec(callback);
       },
+
       images: function(callback) {
         var Image = keystone.list('Image').model.find().limit(4).exec(callback);
       }
@@ -18,8 +19,16 @@ exports = module.exports = function (req, res, next) {
         res.status(500).send(err);
         return;
       }
-      console.log(contentImages);
-      view.render('index', {contentImages: contentImages});
+
+      var portfolio = contentImages.portfolio;
+      var images = contentImages.images;
+      var entirePortfolio = portfolio.concat(images);
+
+      entirePortfolio.sort(function(a, b) {
+        return b.publishedDate - a.publishedDate;
+      });
+
+      view.render('index', {contentImages: entirePortfolio});
   });
 
 };
