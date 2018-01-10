@@ -7,7 +7,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
   var Portfolio = keystone.list('Portfolio').model.find({});
-  var Image = Image = keystone.list('Image').model.find({});
+  var Image = keystone.list('Image').model.find({});
   var entirePortfolio = {
     portfolio: Portfolio.exec.bind(Portfolio),
     image: Image.exec.bind(Image),
