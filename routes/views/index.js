@@ -1,23 +1,25 @@
 var keystone = require('keystone');
 var async = require('async');
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function (req, res, next) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+  var view = new keystone.View(req, res);
 
-  var Portfolio = keystone.list('Portfolio').model.find({});
-  var Image = keystone.list('Image').model.find({});
-  var entirePortfolio = {
-    portfolio: Portfolio.exec.bind(Portfolio),
-    image: Image.exec.bind(Image),
-  };
+  async.parallel({
+      portfolio: function(callback) {
+        var Portfolio = keystone.list('Portfolio').model.find().limit(3).exec(callback);
+      },
+      images: function(callback) {
+        var Image = keystone.list('Image').model.find().limit(4).exec(callback);
+      }
+    },
+    function(err, contentImages) {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      console.log(contentImages);
+      view.render('index', {contentImages: contentImages});
+  });
 
-  async.parallel(entirePortfolio, function(error, contentImages) {
-    if (error) {
-      res.status(500).send(error);
-      return;
-    }
-    res.render('index', {contentImages: contentImages});
-  })
 };

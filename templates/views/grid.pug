@@ -1,6 +1,7 @@
 append content
   .container
-    section.grid
+    section.grid This is a grid
+      - console.log(contentImages.length)
       - for (var i = 0; i < contentImages.length; i += 2)
         - var secondClass = i+1 >= contentImages.length ? 'solo' : contentImages[i+1].layout;
         div.row
