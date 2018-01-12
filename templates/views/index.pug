@@ -3,9 +3,19 @@ extends ../layouts/default
 block content
   .container
     - for (var i = 0; i < contentImages.length; i++)
-      if(contentImages[i].featuredImage === true)
+      if (contentImages[i].featuredImage === true)
         section.hero
           div.hero__feature
             img.hero__feature--image(src=contentImages[i].bigImage, alt=contentImages[i].name)
 
-include grid
+  .container
+    section.grid
+      - for (var i = 0; i < contentImages.length; i += 2)
+        if (contentImages[i].featuredImage === false)
+          - var secondClass = i+1 >= contentImages.length ? 'solo' : contentImages[i+1].layout;
+          div.row
+            div(class="col-" + contentImages[i].layout + "-" + secondClass)
+              img(class="col-" + contentImages[i].layout + "-" + secondClass + "__image" src=contentImages[i].smallImage alt=contentImages[i].name)
+            if (secondClass !== 'solo')
+              div(class="col-" + contentImages[i].layout + "-" + secondClass)
+                img(class="col-" + contentImages[i].layout + "-" + secondClass + "__image" src=contentImages[i+1].smallImage alt=contentImages[i+1].name)
