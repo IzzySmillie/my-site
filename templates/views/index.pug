@@ -2,11 +2,10 @@ extends ../layouts/default
 
 block content
   .container
-    - for (var i = 0; i < contentImages.length; i++)
-      if (contentImages[i].featuredImage === true)
-        section.hero
-          div.hero__feature
-            img.hero__feature--image(src=contentImages[i].bigImage, alt=contentImages[i].name)
+    - if (featuredImage)
+      section.hero
+        div.hero__feature
+          img.hero__feature--image(src=featuredImage.bigImage, alt=featuredImage.name)
 
   .container
     section.grid

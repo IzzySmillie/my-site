@@ -4,7 +4,6 @@ var async = require('async');
 exports = module.exports = function (req, res, next) {
 
   var view = new keystone.View(req, res);
-  var locals = res.locals;
 
   async.parallel({
       portfolio: function(callback) {
@@ -13,7 +12,7 @@ exports = module.exports = function (req, res, next) {
 
       images: function(callback) {
         var Image = keystone.list('Image').model.find().limit(4).exec(callback);
-      }
+      },
     },
     function(err, contentImages) {
       if (err) {
@@ -29,7 +28,15 @@ exports = module.exports = function (req, res, next) {
         return b.publishedDate - a.publishedDate;
       });
 
-      view.render('index', {contentImages: entirePortfolio});
+      for (var i = 0; i < entirePortfolio.length; i++) {
+        if (entirePortfolio[i].featuredImage === true) {
+          var featuredImage = entirePortfolio[i];
+          break;
+          return featuredImage;
+        }
+      }
+
+      view.render('index', {contentImages: entirePortfolio, featuredImage: featuredImage});
   });
 
 };
