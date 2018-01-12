@@ -4,6 +4,7 @@ var async = require('async');
 exports = module.exports = function (req, res, next) {
 
   var view = new keystone.View(req, res);
+  var locals = res.locals;
 
   async.parallel({
       portfolio: function(callback) {
